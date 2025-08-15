@@ -41,7 +41,10 @@
       </div>
     </section>
   </main>
-
+  <script type="module">
+    import { createDebugPanel } from './debug.js';
+    createDebugPanel();
+  </script>
   <script defer src="vendor/papaparse.min.js"></script>
   <script defer src="geo.js"></script>
   <script defer src="sensors.js"></script>
