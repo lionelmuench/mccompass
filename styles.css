@@ -2,7 +2,6 @@
   --mc-red:#DA291C;
   --mc-yellow:#FFC72C;
   --fg:#fff;
-  --fg-dim:#ffe9b3;
   --bg:#DA291C;
 }
 *{box-sizing:border-box}
@@ -34,15 +33,19 @@ body{
   width:min(80vmin,440px); height:min(80vmin,440px);
   display:grid; place-items:center; margin:12px 0 4px;
 }
-#arrow{width:80%; max-width:360px; transform:rotate(0deg); transform-origin:50% 55%; transition:transform .06s linear}
+#arrow{
+  width:80%; max-width:360px;
+  transform:rotate(0deg); transform-origin:50% 55%;
+  /* Remove CSS transition to prevent 360° spin near wrap-around. */
+  will-change: transform;
+}
 
 .readout{text-align:center}
 .distance{font-size:38px; font-weight:800; line-height:1.1}
 .store{margin-top:6px; font-size:18px; opacity:.95}
 .actions{display:flex; gap:14px; justify-content:center; margin-top:8px}
-.meta{margin-top:6px; opacity:.8; font-size:.9rem}
 
-/* Safe area love */
+/* Safe area */
 @supports (padding: env(safe-area-inset-bottom)){
   body{padding-bottom: env(safe-area-inset-bottom)}
 }

@@ -21,7 +21,6 @@
     <section id="gate">
       <p class="lead">Tap once to enable location + compass.</p>
       <button id="enableBtn" class="btn">Enable Location & Compass</button>
-      <p class="hint">We don't track or send data anywhere. All on your device.</p>
       <div id="gateError" class="err" role="alert" hidden></div>
     </section>
 
@@ -36,20 +35,13 @@
           <button id="unitsBtn" class="link">mi</button>
           <a id="mapsLink" class="link" target="_blank" rel="noopener">Open in Maps</a>
         </div>
-        <div id="accuracy" class="meta"></div>
-        <div id="status" class="meta"></div>
       </div>
     </section>
   </main>
-  <script type="module">
-    import { createDebugPanel } from './debug.js';
-    createDebugPanel();
-  </script>
-  <script defer src="vendor/papaparse.min.js"></script>
-  <script defer src="geo.js"></script>
-  <script defer src="sensors.js"></script>
-  <script defer src="data.js"></script>
-  <script defer src="pwa.js"></script>
-  <script defer src="app.js"></script>
+
+  <!-- Vendor (non-module) -->
+  <script src="vendor/papaparse.min.js"></script>
+  <!-- App entrypoint as a module -->
+  <script type="module" src="app.js"></script>
 </body>
 </html>

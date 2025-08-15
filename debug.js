@@ -31,7 +31,6 @@ export function createDebugPanel() {
     pre.appendChild(line);
     pre.scrollTop = pre.scrollHeight;
   }
-  // Mirror console
   const orig = {
     log: console.log, warn: console.warn, error: console.error, info: console.info
   };
@@ -39,11 +38,9 @@ export function createDebugPanel() {
   console.warn = (...a)=>{ write('warn', a); orig.warn(...a); };
   console.error = (...a)=>{ write('error', a); orig.error(...a); };
   console.info = (...a)=>{ write('info', a); orig.info(...a); };
-  // Catch errors
   window.addEventListener('error', e => write('window.onerror', [e.message, e.filename+':'+e.lineno]));
   window.addEventListener('unhandledrejection', e => write('unhandledrejection', [String(e.reason)]));
 
-  // Initial environment dump
   console.info('UA', navigator.userAgent);
   console.info('iOS guess', /iPad|iPhone|iPod/.test(navigator.userAgent));
   console.info('Motion & Orientation Access toggle exists?', typeof DeviceMotionEvent !== 'undefined');

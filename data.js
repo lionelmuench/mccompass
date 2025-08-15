@@ -4,7 +4,7 @@ import { haversineMeters } from './geo.js';
 let STORES = []; // {name, city, state, lat, lon}
 
 export async function loadStores(){
-  const res = await fetch('mcdonalds.csv', { cache:'no-cache' });
+  const res = await fetch('mcdonalds_locations.csv', { cache:'no-cache' });
   if (!res.ok) throw new Error('Failed to load mcdonalds.csv');
   const text = await res.text();
 
