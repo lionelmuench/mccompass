@@ -1,0 +1,48 @@
+:root{
+  --mc-red:#DA291C;
+  --mc-yellow:#FFC72C;
+  --fg:#fff;
+  --fg-dim:#ffe9b3;
+  --bg:#DA291C;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+#app{min-height:100%; display:flex; flex-direction:column; align-items:center; padding:16px}
+.brand{display:flex; align-items:center; gap:12px; margin:12px auto 8px}
+.brand .arches{font-size:28px}
+.title{margin:0; font-weight:800; letter-spacing:.2px}
+
+.lead{opacity:.95; margin:12px 0 8px}
+.hint{opacity:.75; font-size:.9rem; margin-top:8px}
+.err{background:#00000030; border:1px solid #00000040; padding:8px 10px; border-radius:8px; margin-top:10px}
+
+.btn{
+  display:inline-block; background:var(--mc-yellow); color:#3a2a00; font-weight:700;
+  padding:14px 16px; border:none; border-radius:999px; cursor:pointer; min-width:240px;
+  transition:transform .06s ease;
+}
+.btn:active{transform:scale(.98)}
+.link{background:none; border:none; color:var(--mc-yellow); font-weight:700; cursor:pointer; text-decoration:underline; padding:0}
+
+#compass{display:flex; flex-direction:column; align-items:center; width:100%; max-width:680px; margin-top:12px}
+
+.arrowWrap{
+  width:min(80vmin,440px); height:min(80vmin,440px);
+  display:grid; place-items:center; margin:12px 0 4px;
+}
+#arrow{width:80%; max-width:360px; transform:rotate(0deg); transform-origin:50% 55%; transition:transform .06s linear}
+
+.readout{text-align:center}
+.distance{font-size:38px; font-weight:800; line-height:1.1}
+.store{margin-top:6px; font-size:18px; opacity:.95}
+.actions{display:flex; gap:14px; justify-content:center; margin-top:8px}
+.meta{margin-top:6px; opacity:.8; font-size:.9rem}
+
+/* Safe area love */
+@supports (padding: env(safe-area-inset-bottom)){
+  body{padding-bottom: env(safe-area-inset-bottom)}
+}
